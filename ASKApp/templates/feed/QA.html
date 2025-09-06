@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+<h2>Answered At:&nbsp;&nbsp;{{date |date:"F d, Y" }} {{date |time:"H:i:s" }} </h2>
+
+<form>
+    {% csrf_token %}
+    <a><label><b>Answered By:&nbsp;</b></label><input value={{answerAuthor}} disabled></a><br><br>
+    <label>Question</label><textarea style="font-weight: bold;" disabled rows="4" cols="100">{{questionText}}</textarea>
+    <label>Answer</label><textarea style="font-weight: bold;" disabled rows="5" cols="100">{{answerText}}</textarea>
+</form>
+{% endblock content %}

@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+{% if mismatch_skills %}
+<div class="alert alert-warning" role="alert">
+    The answer author's skills do not match the question category.
+</div>
+{% endif %}
+<div class="table">
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th class="question-column">Question</th>
+                <th class="filter-header">
+                    <label for="skill">Skill:</label>
+                    <form method="GET" action="{% url 'core:questionsList'%}">
+                        <div class="form-row">
+                            <div class="col-md-10">
+                                <select id="cate" class="form-control" name="skill" required>
+                                    <option value="none">All skill</option>
+                                    {% for skill in skills %}
+                                    <option value="{{ skill.name }}">{{ skill.name }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="col-md-1">
+                                <button type="submit" class="btn btn-primary btn-block">Filter</button>
+                            </div>
+                        </div>
+                    </form>
+
+                </th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for question in questionList %}
+            <tr>
+                <td>{{ question.questionText }}</td>
+                <td>{{ question.skill }}</td>
+                <td><a class="btn btn-primary mr-3" href="{% url 'core:answer' question.id %}">Answer</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot></tfoot>
+    </table>
+</div>
+{% endblock content %}

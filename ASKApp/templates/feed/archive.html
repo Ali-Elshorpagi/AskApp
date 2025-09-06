@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Category</th>
+            <th>Question</th>
+            <th>Answer</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for QA in answersList %}
+        <tr>
+            <td>{{QA.question.skill}}</td>
+            <td><b>By:
+                    {% if QA.question.isAnonymous == True %}
+                    Anonymous
+                    {% else %}
+                    {{QA.question.author}}
+                    {% endif %}
+                    &ensp;at&ensp;{{QA.question.date}}
+                </b>
+                <br><br>
+                {{QA.question.questionText}}
+            </td>
+            <td><a href="{% url 'core:QA' QA.id%}">Answer</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock content %}

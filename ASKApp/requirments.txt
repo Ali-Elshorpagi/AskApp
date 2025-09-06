@@ -1,0 +1,8 @@
+Django
+django-filter
+djangorestframework
+djangorestframework-simplejwt
+pillow
+nltk
+numpy
+psycopg2

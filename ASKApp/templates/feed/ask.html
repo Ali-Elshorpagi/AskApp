@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+
+
+   <h2>Ask a Question</h2>
+   <div class="question-form">
+      <form method="POST">
+         {% csrf_token %}
+         <!-- Text Input for the Question -->
+         <label for="question_text">Question:</label>
+         <textarea name="questionText" placeholder="Write Your Question" rows="4" cols="100" f required></textarea>
+         <!-- Category Selection -->
+         <label for="skill">Skill:</label>
+         <select id="skill" name="skill" required>
+            {% for skill in skills %}
+            {% if skill.name == 'General' %}
+            <option value="{{ skill.name }}" selected>{{ skill }}</option>
+            {% else %}
+            <option value="{{ skill.name }}">{{ skill }}</option>
+            {% endif %}
+            {% endfor %}
+         </select>
+         <div class="switch-container">
+            <label for="anonymous-switch">Anonymous Question</label>
+            <label class="switch">
+               <input type="checkbox" name="isAnonymous" value="True" />
+               <span class="slider round"></span>
+            </label>
+         </div>
+         <!-- Submit Button -->
+         <br />
+         <button type="submit">Submit</button>
+      </form>
+   </div>
+</div>
+{% endblock content %}

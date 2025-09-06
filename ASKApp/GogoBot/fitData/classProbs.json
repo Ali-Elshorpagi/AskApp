@@ -1,0 +1,16 @@
+{
+    "embedded": 0.16915847928235797,
+    "android": 0.16574113626655276,
+    "machine-learning": 0.16232379325074756,
+    "frontend": 0.15677061085006408,
+    "backend": 0.13925672789406238,
+    "artificial-intelligence": 0.12558735583084152,
+    "machine-learning, artificial-intelligence": 0.043571123451516446,
+    "frontend, backend": 0.02648440837249039,
+    "backend, android": 0.007689021785561726,
+    "frontend, android": 0.0012815036309269544,
+    "embedded, android": 0.0008543357539513029,
+    "machine-learning, artificial-intelligence, android": 0.00042716787697565144,
+    "frontend, backend, android": 0.00042716787697565144,
+    "artificial-intelligence, android": 0.00042716787697565144
+}
